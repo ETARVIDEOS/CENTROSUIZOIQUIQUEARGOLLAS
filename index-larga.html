@@ -1,0 +1,769 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Argollas de Matrimonio en Iquique — Centro Suizo Joyería</title>
+<meta name="description" content="Las argollas de matrimonio más elegantes de Iquique. Oro 18K, diseños exclusivos, financiamiento disponible. Cotiza gratis hoy.">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+/* ── RESET ───────────────────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{overflow-x:hidden;scroll-behavior:smooth}
+body{overflow-x:hidden;background:#080809;color:#F0EAE0;font-family:'Montserrat',sans-serif;font-weight:300;line-height:1.7}
+
+:root{
+  --gold:#C8A84B;
+  --gold-light:#E2C878;
+  --gold-dark:#9A7B2E;
+  --cream:#F0EAE0;
+  --dark:#080809;
+  --dark2:#111114;
+  --text-muted:#9B9080;
+}
+
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:#080809}
+::-webkit-scrollbar-thumb{background:var(--gold-dark);border-radius:2px}
+
+/* ── NAV ──────────────────────────────────────────────────── */
+.nav{
+  position:fixed;top:0;left:0;right:0;z-index:100;
+  display:flex;align-items:center;justify-content:space-between;
+  padding:.8rem 2rem;
+  transition:background .4s,backdrop-filter .4s;
+}
+.nav.scrolled{
+  background:rgba(8,8,9,.93);
+  backdrop-filter:blur(14px);
+  border-bottom:1px solid rgba(200,168,75,.15);
+}
+.nav__logo{display:flex;align-items:center;gap:.7rem;text-decoration:none}
+.nav__logo-svg{width:30px;height:30px;flex-shrink:0}
+.nav__wordmark{
+  display:flex;flex-direction:column;line-height:1;
+  font-family:'Cormorant Garamond',serif;font-weight:400;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+}
+.nav__wordmark span:first-child{font-size:.95rem}
+.nav__wordmark span:last-child{font-size:.68rem;letter-spacing:.3em;opacity:.8}
+.nav__cta{
+  border:1px solid var(--gold);color:var(--gold);
+  font-family:'Montserrat',sans-serif;font-size:.65rem;
+  letter-spacing:.18em;font-weight:500;text-transform:uppercase;
+  padding:.5rem 1.3rem;text-decoration:none;
+  transition:background .25s,color .25s;white-space:nowrap;
+}
+.nav__cta:hover{background:var(--gold);color:#080809}
+
+/* ── BOTONES ──────────────────────────────────────────────── */
+.btn-gold{
+  display:inline-block;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold),var(--gold-light));
+  color:#080809;font-family:'Montserrat',sans-serif;
+  font-size:.72rem;letter-spacing:.18em;font-weight:600;
+  text-transform:uppercase;padding:.95rem 2.5rem;
+  text-decoration:none;border:none;cursor:pointer;
+  transition:opacity .25s,transform .2s;
+  box-shadow:0 8px 28px rgba(200,168,75,.3);
+}
+.btn-gold:hover{opacity:.88;transform:translateY(-2px)}
+.btn-outline-gold{
+  display:inline-block;background:transparent;
+  border:1px solid var(--gold);color:var(--gold);
+  font-family:'Montserrat',sans-serif;font-size:.72rem;
+  letter-spacing:.18em;font-weight:500;text-transform:uppercase;
+  padding:.95rem 2.5rem;text-decoration:none;
+  transition:background .25s,color .25s;
+}
+.btn-outline-gold:hover{background:var(--gold);color:#080809}
+.cta-row{display:flex;justify-content:center;gap:1rem;flex-wrap:wrap;margin-top:2.8rem}
+
+/* ── TYPOGRAPHY ───────────────────────────────────────────── */
+.gold-line{display:block;width:40px;height:1px;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin:0 auto 1.5rem}
+.section-label{
+  display:block;font-size:.6rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;text-align:center;margin-bottom:1rem;
+}
+.section-title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.9rem,4vw,2.8rem);font-weight:300;
+  text-align:center;color:var(--cream);line-height:1.25;margin-bottom:.6rem;
+}
+.section-sub{
+  text-align:center;color:var(--text-muted);font-size:.85rem;
+  max-width:520px;margin:0 auto 1rem;line-height:1.85;
+}
+
+/* ── SECCIONES ────────────────────────────────────────────── */
+section{padding:6rem 2rem}
+.section-inner{max-width:1080px;margin:0 auto}
+
+/* ── FADE ─────────────────────────────────────────────────── */
+.fade-up{opacity:0;transform:translateY(28px);transition:opacity .65s ease,transform .65s ease}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* ── HERO ─────────────────────────────────────────────────── */
+.hero{
+  position:relative;min-height:100svh;
+  display:flex;align-items:flex-end;overflow:hidden;
+}
+.hero__bg{
+  position:absolute;inset:0;
+  background:url('imgi_19_661474693_18352137673226899_2966650800481616992_n.jpg') center/cover no-repeat;
+}
+.hero__overlay{
+  position:absolute;inset:0;
+  background:linear-gradient(to bottom,rgba(8,8,9,.1) 0%,rgba(8,8,9,.25) 35%,rgba(8,8,9,.78) 70%,rgba(8,8,9,.97) 100%);
+}
+.hero__content{
+  position:relative;z-index:2;
+  width:100%;max-width:680px;
+  padding:0 2rem 7rem;
+}
+.hero__eyebrow{
+  font-size:.62rem;letter-spacing:.35em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;margin-bottom:1.2rem;
+  display:flex;align-items:center;gap:.8rem;
+}
+.hero__eyebrow::before{content:'';width:28px;height:1px;background:var(--gold);flex-shrink:0}
+.hero__title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.8rem,7vw,5rem);font-weight:300;
+  line-height:1.05;color:#fff;margin-bottom:1.4rem;letter-spacing:.02em;
+}
+.hero__title em{
+  font-style:italic;
+  background:linear-gradient(120deg,var(--gold),var(--gold-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+}
+.hero__sub{font-size:.87rem;color:rgba(240,234,224,.72);max-width:420px;margin-bottom:2.4rem;line-height:1.9}
+.hero__btns{display:flex;gap:1rem;flex-wrap:wrap}
+
+/* ── TRUST BAR ────────────────────────────────────────────── */
+.trust-bar{
+  background:var(--dark2);
+  border-top:1px solid rgba(200,168,75,.18);
+  border-bottom:1px solid rgba(200,168,75,.18);
+  padding:1.4rem 2rem;
+}
+.trust-bar__inner{
+  max-width:1000px;margin:0 auto;
+  display:flex;flex-wrap:wrap;justify-content:center;gap:1.5rem 3.5rem;
+}
+.trust-item{
+  display:flex;align-items:center;gap:.6rem;
+  font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted);
+}
+.trust-item strong{color:var(--gold);font-family:'Cormorant Garamond',serif;font-size:1.15rem;font-weight:400;letter-spacing:.05em}
+
+/* ── VALORES ──────────────────────────────────────────────── */
+.valores{background:var(--dark)}
+.valores__grid{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:1.5px;background:rgba(200,168,75,.08);
+  border:1px solid rgba(200,168,75,.08);margin-top:2.5rem;
+}
+.valor{
+  background:var(--dark);padding:2.5rem 1.5rem;text-align:center;
+  transition:background .3s;
+}
+.valor:hover{background:var(--dark2)}
+.valor__icon{width:40px;height:40px;margin:0 auto 1.2rem;display:flex;align-items:center;justify-content:center}
+.valor__icon svg{width:100%;height:100%;stroke:var(--gold);fill:none;stroke-width:1.3;stroke-linecap:round;stroke-linejoin:round}
+.valor__title{font-family:'Cormorant Garamond',serif;font-size:1.05rem;color:var(--cream);margin-bottom:.4rem;letter-spacing:.06em}
+.valor__text{font-size:.74rem;color:var(--text-muted);line-height:1.85}
+
+/* ── GALERÍA ──────────────────────────────────────────────── */
+.galeria{background:var(--dark2)}
+.galeria__grid{
+  display:grid;
+  grid-template-columns:1.4fr 1fr 1fr;
+  grid-template-rows:auto auto;
+  gap:3px;margin-top:2.5rem;
+}
+.galeria__item{overflow:hidden;position:relative}
+.galeria__item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .6s ease}
+.galeria__item:nth-child(1){grid-row:1/3}
+.galeria__item:nth-child(1) img{aspect-ratio:2/3}
+.galeria__item:not(:nth-child(1)) img{aspect-ratio:4/3}
+.galeria__item:hover img{transform:scale(1.05)}
+.galeria__item__label{
+  position:absolute;bottom:0;left:0;right:0;
+  padding:1rem 1.2rem;background:linear-gradient(transparent,rgba(8,8,9,.85));
+  font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
+  opacity:0;transition:opacity .3s;
+}
+.galeria__item:hover .galeria__item__label{opacity:1}
+
+/* ── CEREMONIA ────────────────────────────────────────────── */
+.ceremonia{background:var(--dark)}
+.ceremonia__inner{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;max-width:1080px;margin:0 auto}
+.ceremonia__img-wrap{position:relative}
+.ceremonia__img-wrap::before{
+  content:'';position:absolute;top:-20px;left:-20px;right:20px;bottom:20px;
+  border:1px solid rgba(200,168,75,.25);z-index:0;pointer-events:none;
+}
+.ceremonia__img-wrap img{
+  position:relative;z-index:1;
+  width:100%;aspect-ratio:3/4;object-fit:cover;display:block;
+}
+.ceremonia__content{padding:1rem 0}
+.ceremonia__eyebrow{
+  font-size:.58rem;letter-spacing:.4em;text-transform:uppercase;
+  color:var(--gold);font-weight:500;margin-bottom:1.2rem;
+  display:flex;align-items:center;gap:.7rem;
+}
+.ceremonia__eyebrow::before{content:'';width:24px;height:1px;background:var(--gold);flex-shrink:0}
+.ceremonia__title{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,3.5vw,2.7rem);font-weight:300;
+  color:var(--cream);line-height:1.18;margin-bottom:1.4rem;letter-spacing:.02em;
+}
+.ceremonia__title em{font-style:italic;color:var(--gold)}
+.ceremonia__text{font-size:.84rem;color:var(--text-muted);line-height:2;margin-bottom:1.5rem}
+.ceremonia__features{list-style:none;margin-bottom:2.2rem}
+.ceremonia__features li{
+  font-size:.8rem;color:var(--cream);padding:.45rem 0;
+  border-bottom:1px solid rgba(200,168,75,.1);
+  display:flex;align-items:center;gap:.8rem;
+}
+.ceremonia__features li::before{content:'◆';color:var(--gold);font-size:.5rem;flex-shrink:0}
+
+/* ── TESTIMONIOS ──────────────────────────────────────────── */
+.testimonios{background:var(--dark2)}
+.testimonios__grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:1.5px;
+  background:rgba(200,168,75,.08);border:1px solid rgba(200,168,75,.08);
+  margin-top:2.5rem;
+}
+.testimonio{background:var(--dark2);padding:2.5rem 2rem}
+.testimonio__estrellas{color:var(--gold);letter-spacing:.15em;font-size:.75rem;margin-bottom:1rem}
+.testimonio__texto{
+  font-family:'Cormorant Garamond',serif;font-style:italic;
+  font-size:1.05rem;color:var(--cream);line-height:1.7;margin-bottom:1.5rem;font-weight:300;
+}
+.testimonio__autor{display:flex;align-items:center;gap:.9rem}
+.testimonio__avatar{
+  width:36px;height:36px;border-radius:50%;
+  background:linear-gradient(135deg,var(--gold-dark),var(--gold));
+  display:flex;align-items:center;justify-content:center;
+  font-family:'Cormorant Garamond',serif;font-size:1rem;color:#080809;flex-shrink:0;
+}
+.testimonio__nombre{font-size:.75rem;color:var(--cream);letter-spacing:.06em}
+.testimonio__ciudad{font-size:.67rem;color:var(--text-muted);margin-top:.1rem}
+
+/* ── KPIs ─────────────────────────────────────────────────── */
+.garantias{background:var(--dark);position:relative;overflow:hidden}
+.garantias::before{
+  content:'';position:absolute;top:-60%;left:50%;transform:translateX(-50%);
+  width:600px;height:600px;border-radius:50%;
+  background:radial-gradient(ellipse,rgba(200,168,75,.06),transparent 70%);
+  pointer-events:none;
+}
+.kpi-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  gap:2px;background:rgba(200,168,75,.08);
+  border:1px solid rgba(200,168,75,.08);margin:2.5rem 0;
+}
+.kpi{background:var(--dark);padding:2.5rem 1.5rem;text-align:center}
+.kpi__num{
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2.5rem,5vw,3.8rem);font-weight:300;
+  background:linear-gradient(120deg,var(--gold-dark),var(--gold-light));
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;
+  line-height:1;margin-bottom:.5rem;
+}
+.kpi__lbl{font-size:.68rem;letter-spacing:.15em;text-transform:uppercase;color:var(--text-muted)}
+
+/* ── FORM SECTION ─────────────────────────────────────────── */
+.form-sec{background:var(--dark2);position:relative;overflow:hidden}
+.form-sec::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 60% 40% at 50% 0%,rgba(200,168,75,.06),transparent);
+  pointer-events:none;
+}
+.form-sec__inner{max-width:700px;margin:0 auto;position:relative;z-index:1}
+.form-box{
+  margin-top:2.5rem;
+  border:1px solid rgba(200,168,75,.28);
+  background:rgba(8,8,9,.5);
+  backdrop-filter:blur(8px);
+}
+.form-box__head{
+  padding:1.5rem 2rem;
+  background:linear-gradient(135deg,rgba(200,168,75,.12),rgba(200,168,75,.04));
+  border-bottom:1px solid rgba(200,168,75,.18);
+  display:flex;align-items:center;gap:1rem;
+}
+.form-box__head-icon{color:var(--gold);font-size:1.1rem;flex-shrink:0}
+.form-box__head-title{font-family:'Cormorant Garamond',serif;font-size:1.1rem;color:var(--cream);letter-spacing:.08em}
+.form-box__head-sub{font-size:.68rem;color:var(--text-muted);margin-top:.15rem}
+.form-iframe-wrap{padding:1rem}
+.form-iframe-wrap iframe{display:block;width:100%;min-height:490px;border:none;border-radius:3px}
+.form-trust{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:1.2rem;
+  padding:1.4rem;border-top:1px solid rgba(200,168,75,.1);
+}
+.form-trust span{font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;color:var(--text-muted)}
+.form-trust span::before{content:'✓ ';color:var(--gold)}
+
+/* ── FOOTER ───────────────────────────────────────────────── */
+.footer{background:#050506;border-top:1px solid rgba(200,168,75,.12);padding:3rem 2rem;text-align:center}
+.footer__logo-wrap{display:flex;flex-direction:column;align-items:center;gap:.7rem;margin-bottom:1.2rem}
+.footer__logo-svg{width:54px;height:54px}
+.footer__brand{font-family:'Cormorant Garamond',serif;font-size:1.1rem;letter-spacing:.3em;color:var(--gold);text-transform:uppercase}
+.footer__tagline{font-size:.62rem;letter-spacing:.2em;text-transform:uppercase;color:var(--text-muted);margin:.2rem 0 1.5rem}
+.footer__social{display:flex;justify-content:center;gap:1rem;margin-bottom:1.5rem}
+.footer__social a{
+  width:34px;height:34px;border:1px solid rgba(200,168,75,.25);
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text-muted);text-decoration:none;
+  transition:border-color .25s,color .25s;
+}
+.footer__social a:hover{border-color:var(--gold);color:var(--gold)}
+.footer__copy{font-size:.66rem;color:rgba(155,144,128,.4);letter-spacing:.06em}
+
+/* ── STICKY CTA ───────────────────────────────────────────── */
+.sticky-cta{
+  display:none;position:fixed;bottom:0;left:0;right:0;z-index:99;
+  background:linear-gradient(90deg,var(--gold-dark),var(--gold),var(--gold-light));
+  color:#080809;text-align:center;padding:1rem;
+  font-family:'Montserrat',sans-serif;font-size:.7rem;
+  letter-spacing:.18em;font-weight:600;text-transform:uppercase;
+  text-decoration:none;box-shadow:0 -4px 20px rgba(200,168,75,.4);
+}
+
+/* ════ RESPONSIVE 1024px ════════════════════════════════════ */
+@media(max-width:1024px){
+  .valores__grid{grid-template-columns:repeat(3,1fr)}
+  .galeria__grid{grid-template-columns:1fr 1fr;grid-template-rows:auto}
+  .galeria__item:nth-child(1){grid-row:auto}
+  .galeria__item:nth-child(1) img,.galeria__item:not(:nth-child(1)) img{aspect-ratio:4/3}
+  .ceremonia__inner{grid-template-columns:1fr;gap:3rem}
+  .ceremonia__img-wrap::before{top:-12px;left:-12px;right:12px;bottom:12px}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .testimonios__grid{grid-template-columns:1fr 1fr}
+}
+
+/* ════ RESPONSIVE 900px ═════════════════════════════════════ */
+@media(max-width:900px){
+  html,body{overflow-x:hidden}
+  .nav{padding:.7rem 1.2rem}
+  section{padding:4rem 1.5rem}
+  .hero__content{padding:0 1.5rem 9rem}
+  .valores__grid{grid-template-columns:repeat(2,1fr)}
+  .galeria__grid{grid-template-columns:1fr 1fr}
+  .testimonios__grid{grid-template-columns:1fr}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .sticky-cta{display:block}
+  body{padding-bottom:56px}
+}
+
+/* ════ RESPONSIVE 600px ═════════════════════════════════════ */
+@media(max-width:600px){
+  html,body{overflow-x:hidden}
+  .nav{padding:.65rem 1rem}
+  .nav__wordmark span:first-child{font-size:.82rem}
+  .nav__wordmark span:last-child{font-size:.6rem}
+  .nav__logo-svg{width:24px;height:24px}
+  section{padding:3rem 1rem}
+  .hero__content{padding:0 1rem 8.5rem}
+  .hero__title{font-size:clamp(2.2rem,9vw,3rem)}
+  .hero__sub{font-size:.82rem}
+  .hero__btns .btn-outline-gold{display:none}
+  .trust-bar{padding:1rem}
+  .trust-bar__inner{gap:.8rem 1.5rem}
+  .trust-item{font-size:.62rem}
+  .valores__grid{grid-template-columns:1fr}
+  .galeria__grid{grid-template-columns:1fr}
+  .galeria__item:nth-child(1){grid-row:auto}
+  .galeria__item:nth-child(1) img,.galeria__item:not(:nth-child(1)) img{aspect-ratio:4/3}
+  .ceremonia__inner{gap:2rem}
+  .ceremonia__img-wrap::before{top:-8px;left:-8px;right:8px;bottom:8px}
+  .kpi-grid{grid-template-columns:repeat(2,1fr)}
+  .kpi__num{font-size:2.2rem}
+  .testimonios__grid{grid-template-columns:1fr}
+  .section-title{font-size:clamp(1.65rem,6vw,2rem)}
+  .form-iframe-wrap{padding:.3rem}
+  .form-iframe-wrap iframe{min-height:470px}
+  .form-trust{flex-direction:column;align-items:center;gap:.7rem}
+  .btn-gold,.btn-outline-gold{font-size:.67rem;padding:.85rem 1.8rem}
+  body{padding-bottom:54px}
+}
+
+/* ════ RESPONSIVE 375px ═════════════════════════════════════ */
+@media(max-width:375px){
+  html,body{overflow-x:hidden}
+  .nav__wordmark{display:none}
+  .hero__title{font-size:2.1rem}
+  section{padding:2.5rem .85rem}
+  .kpi-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════════════ NAV ══════════════════════════════ -->
+<nav class="nav" id="nav">
+  <a href="#" class="nav__logo" aria-label="Centro Suizo Joyería">
+    <svg class="nav__logo-svg" viewBox="0 0 100 95" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#C8A84B" stroke-linejoin="round">
+        <polygon points="50,2 95,35 75,92 25,92 5,35" stroke-width="3.2"/>
+        <line x1="27" y1="35" x2="73" y2="35" stroke-width="2.5"/>
+        <line x1="50" y1="2" x2="27" y2="35" stroke-width="2"/>
+        <line x1="50" y1="2" x2="73" y2="35" stroke-width="2"/>
+        <line x1="27" y1="35" x2="50" y2="55" stroke-width="1.8"/>
+        <line x1="73" y1="35" x2="50" y2="55" stroke-width="1.8"/>
+        <line x1="5"  y1="35" x2="50" y2="55" stroke-width="1.8"/>
+        <line x1="95" y1="35" x2="50" y2="55" stroke-width="1.8"/>
+        <line x1="50" y1="55" x2="50" y2="92" stroke-width="1.8"/>
+        <line x1="5"  y1="35" x2="25" y2="92" stroke-width="2.5"/>
+        <line x1="95" y1="35" x2="75" y2="92" stroke-width="2.5"/>
+      </g>
+    </svg>
+    <div class="nav__wordmark">
+      <span>Centro</span>
+      <span>Suizo</span>
+    </div>
+  </a>
+  <a href="#formulario" class="nav__cta">Cotizar Gratis</a>
+</nav>
+
+
+<!-- ══════════════════════ HERO ═════════════════════════════ -->
+<section class="hero">
+  <div class="hero__bg"></div>
+  <div class="hero__overlay"></div>
+  <div class="hero__content">
+    <p class="hero__eyebrow">Joyería Centro Suizo — Iquique</p>
+    <h1 class="hero__title">
+      Las argollas que<br>
+      sellarán <em>su historia</em>
+    </h1>
+    <p class="hero__sub">Argollas de matrimonio en oro 18K. Diseños exclusivos para parejas que merecen lo mejor. Asesoría personalizada, sin costo.</p>
+    <div class="hero__btns">
+      <a href="#formulario" class="btn-gold">Solicitar Cotización Gratis</a>
+      <a href="#valores" class="btn-outline-gold">Conocer más</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ TRUST BAR ════════════════════════ -->
+<div class="trust-bar">
+  <div class="trust-bar__inner">
+    <div class="trust-item"><strong>+25</strong>&nbsp;Años de tradición</div>
+    <div class="trust-item"><strong>Oro 18K</strong>&nbsp;Certificado</div>
+    <div class="trust-item"><strong>+2.000</strong>&nbsp;Parejas felices</div>
+    <div class="trust-item"><strong>Iquique</strong>&nbsp;Tienda local</div>
+    <div class="trust-item"><strong>Garantía</strong>&nbsp;De por vida</div>
+  </div>
+</div>
+
+
+<!-- ══════════════════════ VALORES ══════════════════════════ -->
+<section class="valores" id="valores">
+  <div class="section-inner">
+    <span class="section-label fade-up">Por qué elegirnos</span>
+    <h2 class="section-title fade-up">La joyería de lujo<br>más elegida de Iquique</h2>
+    <span class="gold-line fade-up"></span>
+    <p class="section-sub fade-up">Cada argolla sale de nuestros talleres con el sello de excelencia que nos distingue desde hace más de dos décadas.</p>
+
+    <div class="valores__grid fade-up">
+      <div class="valor">
+        <div class="valor__icon">
+          <svg viewBox="0 0 48 48"><polygon points="24,4 30,18 44,18 33,28 37,42 24,33 11,42 15,28 4,18 18,18"/></svg>
+        </div>
+        <h3 class="valor__title">Oro 18K Certificado</h3>
+        <p class="valor__text">Certificado de pureza incluido. La calidad que merece el momento más importante de tu vida.</p>
+      </div>
+      <div class="valor">
+        <div class="valor__icon">
+          <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><path d="M24 8v8M24 32v8M8 24h8M32 24h8"/><circle cx="24" cy="24" r="5"/></svg>
+        </div>
+        <h3 class="valor__title">Diseños Exclusivos</h3>
+        <p class="valor__text">Clásicas, bicolor, con diamantes o grabado personalizado. Tu estilo, tu elección.</p>
+      </div>
+      <div class="valor">
+        <div class="valor__icon">
+          <svg viewBox="0 0 48 48"><path d="M24 6C14 6 6 14 6 24s8 18 18 18 18-8 18-18S34 6 24 6zm-2 26l-8-8 2.8-2.8 5.2 5.2 10.2-10.2L35 19z"/></svg>
+        </div>
+        <h3 class="valor__title">Garantía de por Vida</h3>
+        <p class="valor__text">Ajuste y mantenimiento para siempre. Porque tu argolla debe durar tanto como tu amor.</p>
+      </div>
+      <div class="valor">
+        <div class="valor__icon">
+          <svg viewBox="0 0 48 48"><path d="M24 4l4 12h12l-10 8 4 12-10-8-10 8 4-12L8 16h12z"/><circle cx="24" cy="24" r="4" stroke-width="1.5"/></svg>
+        </div>
+        <h3 class="valor__title">Grabado Personalizado</h3>
+        <p class="valor__text">Nombre, fecha o frase especial. Un detalle que las hace únicas e irrepetibles.</p>
+      </div>
+      <div class="valor">
+        <div class="valor__icon">
+          <svg viewBox="0 0 48 48"><rect x="6" y="14" width="36" height="26" rx="2"/><path d="M16 14v-4a8 8 0 0116 0v4"/><line x1="24" y1="26" x2="24" y2="30"/></svg>
+        </div>
+        <h3 class="valor__title">Financiamiento</h3>
+        <p class="valor__text">Opciones de pago en cuotas sin interés. Tu anillo de sueños, al alcance de tu presupuesto.</p>
+      </div>
+    </div>
+
+    <div class="cta-row fade-up">
+      <a href="#formulario" class="btn-outline-gold">Solicitar Asesoría Gratis</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ GALERÍA ══════════════════════════ -->
+<section class="galeria" id="galeria">
+  <div class="section-inner">
+    <span class="section-label fade-up">Nuestra colección</span>
+    <h2 class="section-title fade-up">Piezas que cuentan<br>su amor</h2>
+    <span class="gold-line fade-up"></span>
+
+    <div class="galeria__grid fade-up">
+      <div class="galeria__item">
+        <img src="imgi_26_639744727_18345493360226899_1294639026042350907_n.jpg"
+             alt="Estuche argollas de lujo — Centro Suizo" loading="lazy">
+        <div class="galeria__item__label">Colección Premium</div>
+      </div>
+      <div class="galeria__item">
+        <img src="imgi_58_658362437_18352137649226899_8518284289910639333_n.jpg"
+             alt="Argolla oro 18K bicolor — Centro Suizo Iquique" loading="lazy">
+        <div class="galeria__item__label">Diseño Bicolor</div>
+      </div>
+      <div class="galeria__item">
+        <img src="imgi_33_620848487_18342237316226899_1356766105464442408_n.jpg"
+             alt="Par argollas matrimonio — Centro Suizo" loading="lazy">
+        <div class="galeria__item__label">Par Clásico</div>
+      </div>
+      <div class="galeria__item">
+        <img src="imgi_19_661474693_18352137673226899_2966650800481616992_n.jpg"
+             alt="Manos con argollas — Centro Suizo Joyería" loading="lazy">
+        <div class="galeria__item__label">Momento Único</div>
+      </div>
+    </div>
+
+    <div class="cta-row fade-up">
+      <a href="#formulario" class="btn-gold">Solicitar Cotización Gratis</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ CEREMONIA ════════════════════════ -->
+<section class="ceremonia" id="ceremonia">
+  <div class="ceremonia__inner">
+    <div class="ceremonia__img-wrap fade-up">
+      <img src="imgi_26_639744727_18345493360226899_1294639026042350907_n.jpg"
+           alt="Argollas Centro Suizo en estuche de lujo">
+    </div>
+    <div class="ceremonia__content fade-up">
+      <p class="ceremonia__eyebrow">Nuestra historia</p>
+      <h2 class="ceremonia__title">
+        Más de 25 años creando<br>
+        <em>momentos eternos</em>
+      </h2>
+      <p class="ceremonia__text">
+        En Centro Suizo entendemos que las argollas de matrimonio no son solo joyas: son el símbolo de un compromiso para toda la vida. Por eso cada pieza pasa por un proceso artesanal riguroso, desde la selección del oro hasta el acabado final.
+      </p>
+      <p class="ceremonia__text">
+        Nuestros asesores trabajan contigo para encontrar el diseño perfecto para tu pareja, tu estilo y tu presupuesto — sin presiones, a tu ritmo.
+      </p>
+      <ul class="ceremonia__features">
+        <li>Atención personalizada en tienda física en Iquique</li>
+        <li>Medición profesional de talla sin costo</li>
+        <li>Garantía de satisfacción y ajuste incluido</li>
+        <li>Entrega con estuche de lujo y certificado</li>
+      </ul>
+      <a href="#formulario" class="btn-outline-gold">Solicitar Asesoría Gratis</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ TESTIMONIOS ══════════════════════ -->
+<section class="testimonios" id="testimonios">
+  <div class="section-inner">
+    <span class="section-label fade-up">Lo que dicen las parejas</span>
+    <h2 class="section-title fade-up">Historias que nos<br>llenan de orgullo</h2>
+    <span class="gold-line fade-up"></span>
+
+    <div class="testimonios__grid fade-up">
+      <div class="testimonio">
+        <div class="testimonio__estrellas">★★★★★</div>
+        <p class="testimonio__texto">"Las argollas son exactamente lo que soñábamos. El servicio fue increíble, nos acompañaron en todo momento y el resultado superó todas nuestras expectativas."</p>
+        <div class="testimonio__autor">
+          <div class="testimonio__avatar">C</div>
+          <div>
+            <div class="testimonio__nombre">Catalina &amp; Rodrigo</div>
+            <div class="testimonio__ciudad">Iquique · Casados en 2024</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio">
+        <div class="testimonio__estrellas">★★★★★</div>
+        <p class="testimonio__texto">"Fuimos a varios joyeros y en Centro Suizo encontramos la combinación perfecta de calidad, precio y atención. El grabado personalizado quedó hermoso."</p>
+        <div class="testimonio__autor">
+          <div class="testimonio__avatar">M</div>
+          <div>
+            <div class="testimonio__nombre">María José &amp; Felipe</div>
+            <div class="testimonio__ciudad">Iquique · Casados en 2025</div>
+          </div>
+        </div>
+      </div>
+      <div class="testimonio">
+        <div class="testimonio__estrellas">★★★★★</div>
+        <p class="testimonio__texto">"El asesor nos explicó todo sobre los tipos de oro y nos ayudó a elegir el diseño bicolor que quedó perfecto. Los recomendaría sin dudarlo a cualquier pareja."</p>
+        <div class="testimonio__autor">
+          <div class="testimonio__avatar">A</div>
+          <div>
+            <div class="testimonio__nombre">Andrea &amp; Tomás</div>
+            <div class="testimonio__ciudad">Alto Hospicio · Casados en 2025</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="cta-row fade-up">
+      <a href="#formulario" class="btn-outline-gold">Solicitar Cotización Gratis</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ KPIs ═════════════════════════════ -->
+<section class="garantias" id="garantias">
+  <div class="section-inner">
+    <span class="section-label fade-up">Nuestra trayectoria</span>
+    <h2 class="section-title fade-up">Números que<br>hablan solos</h2>
+    <span class="gold-line fade-up"></span>
+
+    <div class="kpi-grid fade-up">
+      <div class="kpi">
+        <div class="kpi__num">+25</div>
+        <div class="kpi__lbl">Años en el mercado</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__num">2.000+</div>
+        <div class="kpi__lbl">Parejas atendidas</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__num">18K</div>
+        <div class="kpi__lbl">Pureza garantizada</div>
+      </div>
+      <div class="kpi">
+        <div class="kpi__num">100%</div>
+        <div class="kpi__lbl">Satisfacción garantizada</div>
+      </div>
+    </div>
+
+    <div class="cta-row fade-up">
+      <a href="#formulario" class="btn-gold">Solicitar Asesoría Gratis</a>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ FORMULARIO ═══════════════════════ -->
+<section class="form-sec" id="formulario">
+  <div class="form-sec__inner">
+    <span class="section-label fade-up">Sin compromiso</span>
+    <h2 class="section-title fade-up" style="font-size:clamp(2rem,5vw,3.2rem)">
+      Cotiza tus argollas<br>
+      <span style="font-style:italic;color:var(--gold);font-family:'Cormorant Garamond',serif">en 24 horas</span>
+    </h2>
+    <span class="gold-line fade-up"></span>
+    <p class="section-sub fade-up">Completa el formulario y un asesor de Centro Suizo te contactará con precios, modelos y opciones de financiamiento.</p>
+
+    <div class="form-box fade-up">
+      <div class="form-box__head">
+        <span class="form-box__head-icon">◆</span>
+        <div>
+          <div class="form-box__head-title">Formulario de Cotización — Argollas Iquique</div>
+          <div class="form-box__head-sub">Respuesta garantizada · Totalmente gratis · Sin compromiso de compra</div>
+        </div>
+      </div>
+      <div class="form-iframe-wrap">
+        <iframe
+          src="https://api.supersonics.one/widget/form/6FH1f8yi0arPMk7qI8K9"
+          id="inline-6FH1f8yi0arPMk7qI8K9"
+          data-layout="{'id':'INLINE'}"
+          data-trigger-type="alwaysShow"
+          data-trigger-value=""
+          data-activation-type="alwaysActivated"
+          data-activation-value=""
+          data-deactivation-type="neverDeactivate"
+          data-deactivation-value=""
+          data-form-name="Formulario Argollas IQQ1"
+          data-height="undefined"
+          data-layout-iframe-id="inline-6FH1f8yi0arPMk7qI8K9"
+          data-form-id="6FH1f8yi0arPMk7qI8K9"
+          title="Formulario Argollas IQQ1">
+        </iframe>
+      </div>
+      <div class="form-trust">
+        <span>Sin compromiso de compra</span>
+        <span>Respuesta en 24 horas</span>
+        <span>Tus datos son privados</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ══════════════════════ FOOTER ═══════════════════════════ -->
+<footer class="footer">
+  <div class="footer__logo-wrap">
+    <svg class="footer__logo-svg" viewBox="0 0 100 95" xmlns="http://www.w3.org/2000/svg">
+      <g fill="none" stroke="#C8A84B" stroke-linejoin="round">
+        <polygon points="50,2 95,35 75,92 25,92 5,35" stroke-width="3"/>
+        <line x1="27" y1="35" x2="73" y2="35" stroke-width="2.5"/>
+        <line x1="50" y1="2" x2="27" y2="35" stroke-width="2"/>
+        <line x1="50" y1="2" x2="73" y2="35" stroke-width="2"/>
+        <line x1="27" y1="35" x2="50" y2="55" stroke-width="1.8"/>
+        <line x1="73" y1="35" x2="50" y2="55" stroke-width="1.8"/>
+        <line x1="5"  y1="35" x2="50" y2="55" stroke-width="1.8"/>
+        <line x1="95" y1="35" x2="50" y2="55" stroke-width="1.8"/>
+        <line x1="50" y1="55" x2="50" y2="92" stroke-width="1.8"/>
+        <line x1="5"  y1="35" x2="25" y2="92" stroke-width="2.5"/>
+        <line x1="95" y1="35" x2="75" y2="92" stroke-width="2.5"/>
+      </g>
+    </svg>
+    <div class="footer__brand">Centro Suizo</div>
+  </div>
+  <div class="footer__tagline">Joyería de Lujo — Iquique, Chile</div>
+  <div class="footer__social">
+    <a href="#" aria-label="WhatsApp">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/></svg>
+    </a>
+    <a href="#" aria-label="Facebook">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+    </a>
+    <a href="#" aria-label="Instagram">
+      <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+    </a>
+  </div>
+  <p class="footer__copy">© 2026 Centro Suizo Joyería · Iquique, Chile</p>
+</footer>
+
+<a href="#formulario" class="sticky-cta">◆ Solicitar Cotización Gratis</a>
+
+<script src="https://api.supersonics.one/js/form_embed.js"></script>
+<script>
+const nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{nav.classList.toggle('scrolled',window.scrollY>50);},{passive:true});
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}});
+},{threshold:.1,rootMargin:'0px 0px -40px 0px'});
+document.querySelectorAll('.fade-up').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
